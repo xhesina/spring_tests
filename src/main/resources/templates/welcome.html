@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to your Schedule Xhesina</title>
+</head>
+<nav class="navbar navbar"  style="background-color:#f1dbff">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p style="letter-spacing:1px;font-size:26px;font-weight:bold;color:color; font-family:Courier New;"><i style="color:black" class="fa fa-calendar"></i>Schedule your day!</p>
+        </div>
+        <ul class="nav navbar-nav navbar-right" >
+            <li><a href="/schedule" class="active" style="color:black ;font-family:Bookman;font-weight:50;font-size:16px;letter-spacing:3px;"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="/detyreform" style="color:black;font-family:Bookman;font-size:16px;font-weight:50;letter-spacing:3px;"><i class="fa fa-tasks"></i>Schedule</a></li>
+            <li><a href="/logout" style="color:black;font-family:Bookman;font-size:16px;font-weight:50;letter-spacing:3px;"><i class="fa fa-sign-out"></i>Log Out</a></li>
+        </ul>
+    </div>
+</nav>
+<body>
+<h3 style="text-align: center;letter-spacing:5px;font-family:Comic Sans MS;color:#0a2433;background-color:silver;opacity:0.6;"> Schedule your days and keep going until you've reached all your goals!</h3>
+<div id="days" class="form-group" align="center">
+    <p style="font-weight:bold"> Select the days you want to schedule:</p>
+    <form method="GET" action="/shtodetyre">
+
+<select name="dayName"  style="width:50%;"class="form-control">
+    <option value="0">Monday</option>
+    <option value="1">Tuesday</option>
+    <option value="2">Wednesday</option>
+    <option value="3">Thursday</option>
+    <option value="4">Friday</option>
+    <option value="5">Saturday</option>
+    <option value="6">Sunday</option>
+</select>
+
+<p style="font-weight:bold"> Write the duties you have to catch up with:</p>
+
+<input  class="form-control" style="width:50%;" type="text" name="duties" required >
+<p style="font-weight:bold">Write your duty duration: </p>
+<input   class="form-control"  style="width:50%;"type="time" name="date">
+        <button id="submit" type="submit" class="btn btn-primary" style="margin-top:30px;" >Submit</button>
+        <a  href="/schedule" class="btn btn-warning" style="margin-top:30px;">Cancel</a>
+
+</form>
+</div>
+</body>
+</html>

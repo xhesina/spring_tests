@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="days" class="form-group" align="center">
+    <p style="font-weight:bold"> Select the days you want to schedule:</p>
+    <form method="GET" action="/editDuty">
+
+
+        <input  class="form-control" style="width:50%;" readonly="" id="dayname" name="dayname" >
+
+        <p style="font-weight:bold"> Write the duties you have to catch up with:</p>
+
+        <input  class="form-control" style="width:50%;" type="text" name="duties" th:placeholder="${task.getDuties()}" required>
+        <p style="font-weight:bold">Write your duty duration: </p>
+        <input   class="form-control"  style="width:50%;"type="time" name="date" th:placeholder="${task.getDate()}">
+        <input id="index" name="index" type="hidden" value="">
+        <button id="submit" type="submit" class="btn btn-primary" style="margin-top:30px;" >Submit</button>
+        <a  href="/schedule" class="btn btn-warning" style="margin-top:30px;">Cancel</a>
+
+    </form>
+    <script>
+        document.getElementById("index").value = new URL(window.location.href).searchParams.get("index");
+        document.getElementById("dayname").value = new URL(window.location.href).searchParams.get("dayname");
+    </script>
+
+</div>
+</body>
+</html>

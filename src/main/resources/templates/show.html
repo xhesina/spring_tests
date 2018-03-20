@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title> Welcome to your Schedule!</title>
+</head>
+<body>
+<nav class="navbar navbar"  style="background-color:#f1dbff">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p style="letter-spacing:1px;font-size:26px;font-weight:bold;color:black; font-family:Courier New;"><i style="color:black" class="fa fa-calendar"></i>Schedule your day!</p>
+        </div>
+        <ul class="nav navbar-nav navbar-right" >
+            <li><a href="/schedule" class="active" style="color:black ;font-family:Bookman;font-weight:50;font-size:16px;letter-spacing:3px;"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="/detyreform" style="color:black;font-family:Bookman;font-size:16px;font-weight:50;letter-spacing:3px;"><i class="fa fa-tasks"></i>Schedule</a></li>
+            <li><a href="/logout" style="color:black;font-family:Bookman;font-size:16px;font-weight:50;letter-spacing:3px;"><i class="fa fa-sign-out"></i>Log Out</a></li>
+        </ul>
+    </div>
+</nav>
+<table style="width: 100%;" class="table" >
+    <tr>
+  <th:block th:each ="gje:${dita}">
+          <td>
+      <table class="table" border="1" style="border:silver;">
+          <tr class="danger" rowspan="2">
+              <th th:text=${gje.getDayName()}></th>
+          </tr>
+          <th:block th:each="duty:${gje.getDuties()}">
+              <tr class="info">
+                  <td th:utext="${duty.getDate()+'  '+ duty.getDuties()}">
+
+                  </td>
+
+              </tr>
+              <tr class="active"><td style="text-align: right;"><a th:href="@{'/delete?dayname='+${gje.getDayName()}+'&index='+${gje.getDuties().indexOf(duty)}}"> <i class="fa fa-trash" style="font-size: large;"></i>&nbsp;</a>
+                  <a th:href="@{'/edit?dayname='+${gje.getDayName()}+'&index='+${gje.getDuties().indexOf(duty)}}"><i
+              class="fa fa-edit"></i></a> </td></tr>
+          </th:block>
+      </table>
+          </td>
+  </th:block>
+</tr>
+</table>
+</body>
+</html>
